@@ -13,6 +13,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                 Manage Users
                             </a>
+                            <a class="nav-link" href="../pages/home.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                                Schedule
+                            </a>
 
  <a class="nav-link" href="bwdates-report-ds.php">
                                 <div class="sb-nav-link-icon"><i class="fa fa-calendar"></i></div>

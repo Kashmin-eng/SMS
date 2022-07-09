@@ -51,6 +51,8 @@ echo "<script>alert('Data deleted');</script>";
                                     <thead>
                                         <tr>
                                              <th>Sno.</th>
+                                
+                                  <th>Roll No</th>
                                   <th>First Name</th>
                                   <th> Last Name</th>
                                   <th> Email Id</th>
@@ -62,6 +64,7 @@ echo "<script>alert('Data deleted');</script>";
                                     <tfoot>
                                         <tr>
                                              <th>Sno.</th>
+                                  <th>Roll No</th>
                                   <th>First Name</th>
                                   <th> Last Name</th>
                                   <th> Email Id</th>
@@ -77,6 +80,8 @@ echo "<script>alert('Data deleted');</script>";
                               {?>
                               <tr>
                               <td><?php echo $cnt;?></td>
+
+                                  <td><?php echo $row['roll'];?></td>
                                   <td><?php echo $row['fname'];?></td>
                                   <td><?php echo $row['lname'];?></td>
                                   <td><?php echo $row['email'];?></td>

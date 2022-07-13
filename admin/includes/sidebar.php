@@ -20,7 +20,7 @@
 
  <a class="nav-link" href="bwdates-report-ds.php">
                                 <div class="sb-nav-link-icon"><i class="fa fa-calendar"></i></div>
-                                B/w Dates Report
+                                Between Dates Report
                             </a>
 
                             <a class="nav-link" href="logout.php">

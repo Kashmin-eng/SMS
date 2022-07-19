@@ -1,13 +1,13 @@
 <?php session_start();
 if(empty($_SESSION['id'])):
-header('Location:../index.php');
+header('Location:../home.php');
 endif;?>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Home | <?php include('../dist/includes/title.php');?></title>
+    <title>Schedule | <?php include('../dist/includes/title.php');?></title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->

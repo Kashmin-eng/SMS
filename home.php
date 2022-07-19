@@ -1,13 +1,13 @@
 <?php session_start();
 if(empty($_SESSION['id'])):
-header('Location:../index.php');
+header('Location:../home.php');
 endif;?>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Exam Schedule | <?php include('../dist/includes/title.php');?></title>
+    <title>Home | <?php include('../dist/includes/title.php');?></title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -36,43 +36,37 @@ endif;?>
             <div class="row">
 	      <div class="col-md-9">
               <div class="box box-warning">
+              	<div style="text-align: center">
+              		<h4>Print Class Schedule
+              		<a href="#searcht" data-target="#searcht" data-toggle="modal" class="dropdown-toggle btn btn-primary">
+                     
+                      Teacher				
+                    </a>
+                   <a href="#searchclass" data-target="#searchclass" data-toggle="modal" class="dropdown-toggle btn btn-success">
+                     
+                      Class				
+                    </a>
+                  
+                   <a href="#searchroom" data-target="#searchroom" data-toggle="modal" class="dropdown-toggle btn btn-warning">
+                     
+                      Room				
+                    </a>
+                    </h4>
+                </div> 
                <form method="post" id="reg-form">
                 <div class="box-body">
-					
-					<a href="#examroom" data-target="#examroom" data-toggle="modal" class="dropdown-toggle pull-right">
-						
-                      <button class="btn btn-primary">Room</button>				
-                    </a>
-					<a href="#examclass" data-target="#examclass" data-toggle="modal" class="dropdown-toggle pull-right">
-                     
-                      <button class="btn btn-success">Class</button>				
-                    </a>
-                   <a href="#examt" data-target="#examt" data-toggle="modal" class="dropdown-toggle pull-right">
-                     
-                      <button class="btn btn-warning">Teacher</button>				
-                    </a>
-					<span style="font-size:18px;font-weight:bolder" class="pull-right">Print Exam Schedule &nbsp;</span>
-                  <br><br>
-                   
-                 
-                   
-                  
 				<div class="row">
-					<div class="col-md-12">
+					<div class="col-md-6">
 							<table class="table table-bordered table-striped" style="margin-right:-10px">
 							<thead>
-							  <tr style="text-align:center">
-								<th width="20%"  style="text-align:center">Time</th>
-								<th style="text-align:center">1st Day</th>
-								<th style="text-align:center">2nd Day</th>
-								<th style="text-align:center">3rd Day</th>
-                <th style="text-align:center">4th Day</th>
-								<th style="text-align:center">5th Day</th>
-								<th style="text-align:center">6th Day</th>
-                <th style="text-align:center">7th Day</th>
-								<th style="text-align:center">8th Day</th>
-								<th style="text-align:center">9th Day</th>
-
+							  <tr>
+								<th>Time</th>
+								<th>S</th>
+								<th>M</th>
+								<th>T</th>
+								<th>W</th>
+								<th>TH</th>
+								<th>F</th>
 								
 							  </tr>
 							</thead>
@@ -86,29 +80,23 @@ endif;?>
 						$start=date("h:i a",strtotime($row['time_start']));
 						$end=date("h:i a",strtotime($row['time_end']));
 		?>
-							  <tr style="text-align:center">
+							  <tr >
 								<td><?php echo $start."-".$end;?></td>
-								<td><input type="checkbox" name="first[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
-								<td><input type="checkbox" name="second[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
-								<td><input type="checkbox" name="third[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
-                <td><input type="checkbox" name="fourth[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
-								<td><input type="checkbox" name="fifth[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
-								<td><input type="checkbox" name="sixth[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
-                <td><input type="checkbox" name="seventh[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
-								<td><input type="checkbox" name="eight[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
-								<td><input type="checkbox" name="nineth[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
+								<td><input type="checkbox" id="check" name="S[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
+								<td><input type="checkbox" id="check" name="M[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
+								<td><input type="checkbox" id="check" name="T[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
+								<td><input type="checkbox" id="check" name="W[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
+								<td><input type="checkbox" id="check" name="TH[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
+								<td><input type="checkbox" id="check" name="F[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
 								
 							  </tr>
-							
-		<?php }?>					  
-		</table>    
-		<div class="result" id="form">
-					  </div>	
-		</div><!--col end -->
-		
-			
-					
-                 
+									
+								
+			<?php }?>					  
+			</table>  
+			<div class="result" id="form">
+					  </div>			
+         </div><!--col end-->           
         </div><!--row end-->        
 					
 			
@@ -128,7 +116,7 @@ endif;?>
 						  <div class="form-group">
 							<label for="date">Teacher</label>
 							
-								<select class="form-control select2" name="member" required>
+								<select class="form-control select2" name="teacher" required>
 								  <?php 
 									$query2=mysqli_query($con,"select * from member order by member_last")or die(mysqli_error($con));
 									  while($row=mysqli_fetch_array($query2)){
@@ -186,22 +174,6 @@ endif;?>
 								<textarea name="remarks" cols="30" placeholder="enclose remarks with parenthesis()"></textarea>
 								
 						  </div><!-- /.form group -->
-						  <!--<div class="form-group">
-							<label class="checkbox-inline"><input type="checkbox" name="merge" id="merge" value="merge" style="width: 20px; height: 20px;">&nbsp;<b>Check if Merge Sections</b></label>
-						  </div><!-- /.form group -->
-						  <div class="form-group" id="cys1" style="display:none">
-							<label for="date">Course, Yr & Section</label>
-							<select class="form-control select2" name="cys1" style="width:100%!important" required>
-								  <?php 
-									$query2=mysqli_query($con,"select * from cys order by cys")or die(mysqli_error($con));
-									 while($row=mysqli_fetch_array($query2)){
-								  ?>
-										<option><?php echo $row['cys'];?></option>
-								  <?php }
-									
-								  ?>
-							</select>	
-						  </div><!-- /.form group -->	
 					</div>
 					
 					
@@ -214,14 +186,12 @@ endif;?>
                       <button class="btn btn-lg btn-primary" id="daterange-btn" name="save" type="submit">
                         Save
                       </button>
-					  <button class="btn btn-lg" id="daterange-btn" type="reset">
-                       Cancel
-                      </button>
+					  <button class="uncheck btn btn-lg btn-success" type="reset">Uncheck All</button>
 					  
 					  
                    </div>
                   </div><!-- /.form group --><hr>
-				</form>	<button class="uncheck btn btn-lg btn-success">Uncheck All</button>
+				</form>	
                       
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
@@ -236,24 +206,23 @@ endif;?>
       </div><!-- /.content-wrapper -->
       <?php include('../dist/includes/footer.php');?>
     </div><!-- ./wrapper -->
-	
-	<div id="examt" class="modal fade in" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+	<div id="searcht" class="modal fade in" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
 	<div class="modal-dialog">
 	  <div class="modal-content" style="height:auto">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span></button>
-                <h4 class="modal-title">Search Faculty Exam Schedule</h4>
+                <h4 class="modal-title">Search Faculty Schedule</h4>
               </div>
               <div class="modal-body">
-			  <form class="form-horizontal" method="post" action="faculty_exam.php" target="_blank">
+			  <form class="form-horizontal" method="post" action="faculty_sched.php" target="_blank">
                 
 				<div class="form-group">
-					<label class="control-label col-lg-3" for="name">Faculty</label>
-					<div class="col-lg-9">
+					<label class="control-label col-lg-2" for="name">Faculty</label>
+					<div class="col-lg-10">
 					<select class="select2" name="faculty" style="width:90%!important" required>
 								  <?php 
-								  include('../dist/includes/dbcon.php');
+								  
 									$query2=mysqli_query($con,"select * from member order by member_last")or die(mysqli_error($con));
 									  while($row=mysqli_fetch_array($query2)){
 								  ?>
@@ -278,23 +247,23 @@ endif;?>
  </div>
  <!--end of modal--> 
  
- <div id="examclass" class="modal fade in" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+ <div id="searchclass" class="modal fade in" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
 	<div class="modal-dialog">
 	  <div class="modal-content" style="height:auto">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span></button>
-                <h4 class="modal-title">Search Class Exam Schedule</h4>
+                <h4 class="modal-title">Search Class Schedule</h4>
               </div>
               <div class="modal-body">
-			  <form class="form-horizontal" method="post" action="class_exam.php" target="_blank">
+			  <form class="form-horizontal" method="post" action="class_sched.php" target="_blank">
                 
 				<div class="form-group">
-					<label class="control-label col-lg-3" for="name">Class</label>
-					<div class="col-lg-9">
+					<label class="control-label col-lg-2" for="name">Class</label>
+					<div class="col-lg-10">
 					<select class="select2" name="class" style="width:90%!important" required>
 								  <?php 
-								  include('../dist/includes/dbcon.php');
+								  
 									$query2=mysqli_query($con,"select * from cys order by cys")or die(mysqli_error($con));
 									  while($row=mysqli_fetch_array($query2)){
 								  ?>
@@ -318,23 +287,24 @@ endif;?>
         </div><!--end of modal-dialog-->
  </div>
  <!--end of modal--> 
- <div id="examroom" class="modal fade in" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+ 
+ <div id="searchroom" class="modal fade in" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
 	<div class="modal-dialog">
 	  <div class="modal-content" style="height:auto">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span></button>
-                <h4 class="modal-title">Search Room Exam Schedule</h4>
+                <h4 class="modal-title">Search Room Schedule</h4>
               </div>
               <div class="modal-body">
-			  <form class="form-horizontal" method="post" action="room_exam.php" target="_blank">
+			  <form class="form-horizontal" method="post" action="room_sched.php" target="_blank">
                 
 				<div class="form-group">
-					<label class="control-label col-lg-3" for="name">Room</label>
-					<div class="col-lg-9">
+					<label class="control-label col-lg-2" for="name">Room</label>
+					<div class="col-lg-10">
 					<select class="select2" name="room" style="width:90%!important" required>
 								  <?php 
-								  include('../dist/includes/dbcon.php');
+								  
 									$query2=mysqli_query($con,"select * from room order by room")or die(mysqli_error($con));
 									  while($row=mysqli_fetch_array($query2)){
 								  ?>
@@ -347,9 +317,7 @@ endif;?>
 				</div> 
 				
 				
-              </div>
-			  
-			  <hr>
+              </div><hr>
               <div class="modal-footer">
 				<button type="submit" name="search" class="btn btn-primary">Display Schedule</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -364,10 +332,12 @@ endif;?>
 	
 		$(document).on('submit', '#reg-form', function()
 		 {  
-		  $.post('exam_save.php', $(this).serialize(), function(data)
+		  $.post('submit.php', $(this).serialize(), function(data)
 		  {
 		   $(".result").html(data);  
-		   $("#form1")[0].reset();	
+		   $("#form1")[0].reset();
+		  // $("#check").reset();
+
 		  });
 		  
 		  return false;
@@ -379,17 +349,6 @@ endif;?>
 $(".uncheck").click(function () {
 			$('input:checkbox').removeAttr('checked');
 });
-</script>
-<script type="text/javascript">
-    $(function () {
-        $("#merge").click(function () {
-            if ($(this).is(":checked")) {
-                $("#cys1").show();
-            } else {
-                $("#cys1").hide();
-            }
-        });
-    });
 </script>
 	
 	<script type="text/javascript" src="autosum.js"></script>
@@ -410,24 +369,12 @@ $(".uncheck").click(function () {
     <script src="../plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="../plugins/datatables/dataTables.bootstrap.min.js"></script>
     
-    <script>
-      $(function () {
-        $("#example1").DataTable();
-        $('#example2').DataTable({
-          "paging": true,
-          "lengthChange": false,
-          "searching": false,
-          "ordering": true,
-          "info": true,
-          "autoWidth": false
-        });
-      });
-    </script>
+  
      <script>
       $(function () {
         //Initialize Select2 Elements
         $(".select2").select2();
-
+       
         //Datemask dd/mm/yyyy
         $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
         //Datemask2 mm/dd/yyyy
@@ -487,3 +434,4 @@ $(".uncheck").click(function () {
     </script>
   </body>
 </html>
+

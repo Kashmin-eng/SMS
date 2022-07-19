@@ -1,6 +1,6 @@
 <?php
 if(empty($_SESSION['id'])):
-header('Location:../index.php');
+header('../home.php');
 endif;
 date_default_timezone_set("Asia/Manila"); 
 

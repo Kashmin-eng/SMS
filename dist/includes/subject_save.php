@@ -12,7 +12,7 @@ include('../dist/includes/dbcon.php');
 	$title = $_POST['title'];					
 	$member=$_SESSION['id'];
 
-	$query=mysqli_query($con,"select * from subject where subject_code='$code'")or die(mysqli_error());
+	$query=mysqli_query($con,"select * from subject where subject_code='$code'")or die(mysqli_error($con));
 			$count=mysqli_num_rows($query);		
 			if ($count>0)
 				{
@@ -22,7 +22,7 @@ include('../dist/includes/dbcon.php');
 			else
 			{	
 				mysqli_query($con,"INSERT INTO subject(subject_code,subject_title,member_id) 
-				VALUES('$code','$title','$member')")or die(mysqli_error());
+				VALUES('$code','$title','$member')")or die(mysqli_error($con));
 				
 				echo "<script type='text/javascript'>alert('Successfully added a subject!');</script>";	
 				echo "<script>document.location='subject.php'</script>";  

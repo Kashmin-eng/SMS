@@ -61,8 +61,11 @@ endif;?>
 							<thead>
 							  <tr>
 								<th>Time</th>
+								<th>S</th>
 								<th>M</th>
+								<th>T</th>
 								<th>W</th>
+								<th>TH</th>
 								<th>F</th>
 								
 							  </tr>
@@ -70,7 +73,7 @@ endif;?>
 							
 		<?php
 				include('../dist/includes/dbcon.php');
-				$query=mysqli_query($con,"select * from time where days='mwf' order by time_start")or die(mysqli_error($con));
+				$query=mysqli_query($con,"select * from time where days='smtwthf' order by time_start")or die(mysqli_error($con));
 					
 				while($row=mysqli_fetch_array($query)){
 						$id=$row['time_id'];
@@ -79,43 +82,15 @@ endif;?>
 		?>
 							  <tr >
 								<td><?php echo $start."-".$end;?></td>
-								<td><input type="checkbox" id="check" name="m[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
-								<td><input type="checkbox" id="check" name="w[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
-								<td><input type="checkbox" id="check" name="f[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
+								<td><input type="checkbox" id="check" name="S[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
+								<td><input type="checkbox" id="check" name="M[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
+								<td><input type="checkbox" id="check" name="T[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
+								<td><input type="checkbox" id="check" name="W[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
+								<td><input type="checkbox" id="check" name="TH[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
+								<td><input type="checkbox" id="check" name="F[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
 								
 							  </tr>
-							
-		<?php }?>					  
-		</table>    
-		</div><!--col end -->
-		<div class="col-md-6">
-			<table class="table table-bordered table-striped">
-								<thead>
-								  <tr>
-									<th>Time</th>
-									<th>s</th>
-									<th>T</th>
-									<th>TH</th>
 									
-								  </tr>
-								</thead>
-								
-			<?php
-					include('../dist/includes/dbcon.php');
-					$query=mysqli_query($con,"select * from time where days='tth' order by time_start")or die(mysqli_error($con));
-						
-					while($row=mysqli_fetch_array($query)){
-							$id=$row['time_id'];
-							$start=date("h:i a",strtotime($row['time_start']));
-							$end=date("h:i a",strtotime($row['time_end']));
-			?>
-								  <tr >
-									<td><?php echo $start."-".$end;?></td>
-									<td><input type="checkbox" name="t[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
-									<td><input type="checkbox" name="th[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
-									<td><input type="checkbox" name="th[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
-									
-								  </tr>
 								
 			<?php }?>					  
 			</table>  

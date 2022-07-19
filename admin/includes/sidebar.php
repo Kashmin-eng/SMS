@@ -13,7 +13,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                 Manage Users
                             </a>
-                            <a class="nav-link" href="../pages/home.php">
+                            <a class="nav-link" href="../pages/home.phps">
                                 <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                 Schedule
                             </a>
